@@ -34,9 +34,11 @@
 				</ul>
 			</div>
 		</nav>
+		
+		<a href="${pageContext.request.contextPath}/bot/form?page=bot-new" class="btn btn-primary m-4">Criar bot</a>
 	
 		<c:if test="${not empty bots}">
-			<table class="table table-striped">
+			<table class="table table-striped table-dark">
 				<thead>
 					<tr>
 						<th data-field="id">ID</th>
@@ -61,14 +63,19 @@
 	
 							<td class="actions"><form:form
 									action="${pageContext.request.contextPath}/bot/${bot.id}"
-									method="delete">
+									method="delete" id="form">
 	
-									<a class="btn btn-success btn-xs"
-										href="${pageContext.request.contextPath}/bot/${bot.id}">Detalhes</a>
-									<a class="btn btn-warning btn-xs"
-										href="${pageContext.request.contextPath}/bot/form?page=bot-edit&id=${bot.id}">Editar</a>
-									<input type="submit" value="Excluir"
-										class="btn btn-danger btn-xs">
+									<a
+										href="${pageContext.request.contextPath}/bot/${bot.id}">
+										<img src="/img/detail.png" style="width: 26px">
+									</a>
+									<a
+										href="${pageContext.request.contextPath}/bot/form?page=bot-edit&id=${bot.id}">
+										<img src="/img/edit2.png" style="width: 26px" />
+									</a>
+									<a href="#" onClick="document.getElementById('form').submit();">
+										<img src="/img/delete.png" style="width: 26px">
+									</a>
 								</form:form></td>
 						</tr>
 					</c:forEach>
