@@ -29,7 +29,7 @@ public class BotController {
 					Model model) {
 		
 		if ("bot-edit".equals(page)) {
-			model.addAttribute("bot", botRepository.findById(id));
+			model.addAttribute("bot", botRepository.findById(id).get());
 		}
 		
 		return page;
@@ -38,7 +38,7 @@ public class BotController {
 	@GetMapping("/{id}")
 	public String findById(@PathVariable Long id, Model model) {
 		
-		model.addAttribute("bot", botRepository.findById(id));
+		model.addAttribute("bot", botRepository.findById(id).get());
 		
 		return "bot-detail";
 	}
@@ -65,6 +65,7 @@ public class BotController {
 					Bot bot,
 					RedirectAttributes ra) {
 		
+		bot.setId(id);
 		botRepository.save(bot);
 		ra.addFlashAttribute("menssages", "Bot atualizado com sucesso!");
 		
