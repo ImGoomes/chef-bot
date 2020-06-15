@@ -21,3 +21,16 @@ start with 1;
 create sequence sequence_tb_segment
 increment by 1
 start with 1;
+
+
+CREATE TABLE tb_user(
+    id_user INT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+create sequence sequence_tb_user
+increment by 1
+start with 1;
+

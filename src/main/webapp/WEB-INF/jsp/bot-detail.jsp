@@ -27,6 +27,8 @@
 					href="${pageContext.request.contextPath}/bot">Bot </a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/segment">Segmento</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/user">Usuário</a></li>
 			</ul>
 		</div>
 	</nav>
