@@ -10,6 +10,14 @@
 		<title>Segmento - Listagem</title>
 		
 		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<style>
+			.action:hover {
+				text-decoration: none;
+			}
+			.custom-container {
+				padding: 12px;
+			}
+		</style>
 	</head>
 	<body style="background-color: #AEAEAE">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,7 +33,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/bot">Bot </a></li>
-				<li class="nav-item"><a class="nav-link"
+				<li class="nav-item active"><a class="nav-link"
 					href="${pageContext.request.contextPath}/segment">Segmento</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/user">Usuário</a></li>
@@ -33,41 +41,49 @@
 		</div>
 		</nav>
 		
-		<c:if test="${not empty segments}">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th data-field="id">ID</th>
-						<th data-field="name">Nome</th>
-						<th data-field="botName">Bot</th>
-					</tr>
-				</thead>
-				<tbody>
-	
-					<c:forEach items="${segments}" var="segment">
+		<a href="${pageContext.request.contextPath}/segment/form?page=segment-new" class="btn btn-primary m-4">Criar Segmento</a>
+		
+		<div class="custom-container">
+			<c:if test="${not empty segments}">
+				<table class="table table-striped table-dark">
+					<thead>
 						<tr>
-							<td>${segment.id}</td>
-							<td>${segment.name}</td>
-							<td>${segment.bot.name}</td>
-	
-							<td class="actions">
-								<form:form
-									action="${pageContext.request.contextPath}/segment/${segment.id}"
-									method="delete">
-	
-									<a class="btn btn-success btn-xs"
-										href="${pageContext.request.contextPath}/bot/${segment.id}">Detalhes</a>
-									<a class="btn btn-warning btn-xs"
-										href="${pageContext.request.contextPath}/bot/form?page=bot-edit&id=${segment.id}">Editar</a>
-									<input type="submit" value="Excluir"
-										class="btn btn-danger btn-xs">
-								</form:form></td>
+							<th data-field="id">ID</th>
+							<th data-field="name">Nome</th>
+							<th data-field="botName">Bot</th>
+							<th data-field="actions">Ações</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</c:if>
-		<div class="container-fluid mt-4">
+					</thead>
+					<tbody>
+		
+						<c:forEach items="${segments}" var="segment">
+							<tr>
+								<td>${segment.id}</td>
+								<td>${segment.name}</td>
+								<td>${segment.bot.name}</td>
+		
+								<td class="actions"><form:form
+										action="${pageContext.request.contextPath}/segment/${segment.id}"
+										method="delete" id="form">
+		
+										<a class="action"
+											href="${pageContext.request.contextPath}/segment/${segment.id}">
+											<img src="/img/detail.png" style="width: 26px">
+										</a>
+										<a class="action"
+											href="${pageContext.request.contextPath}/segment/form?page=segment-edit&id=${segment.id}">
+											<img src="/img/edit2.png" style="width: 26px" />
+										</a>
+										<a class="action"
+											href="#" onClick="document.getElementById('form').submit();">
+											<img src="/img/delete.png" style="width: 26px">
+										</a>
+									</form:form></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
 			<c:if test="${empty segments}">
 				<div class="alert alert-warning" role="alert">
 					Nenhum seguimento encontrado!

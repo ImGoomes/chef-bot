@@ -34,6 +34,9 @@
 	margin: auto;
 	margin-top: 7em;
 }
+#inSenha {
+	margin-top: 10px;
+}
 </style>
 <title>Chefbot</title>
 </head>

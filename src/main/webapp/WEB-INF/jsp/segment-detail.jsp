@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Bot - Detalhes</title>
+<title>Segmento - Detalhes</title>
 
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
 </head>
@@ -36,40 +36,46 @@
 	<div class="container">
 		<div class="card mt-4">
 		
-			<h2 class="pt-3 pl-3">Detalhes do Bot</h2>		
+			<h2 class="pt-3 pl-3">Detalhes do Segmento</h2>		
 			<hr>
 		
 			<div class="col-lg-12">
 				<div class="data">
 
 					<div class="form-group">
-						<label class="control-label" for="name"><b>Nome:</b></label> ${bot.name}
+						<label class="control-label" for="name"><b>Nome:</b> </label> ${segment.name}
+					</div>
+
+					<h2>Bot:</h2>
+
+					<div class="form-group">
+						<label class="control-label" for="botName"><b>Nome:</b></label> ${segment.bot.name}
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="welcomeMsg"><b>Msg Boas
-							Vindas:</b></label> ${bot.welcomeMsg}
+						<label class="control-label" for="botWelcomeMsg"><b>Msg Boas
+							Vindas:</b></label> ${segment.bot.welcomeMsg}
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="farewellMsg"><b>Msg
-							Despedida:</b></label> ${bot.farewellMsg}
+						<label class="control-label" for="botFarewellMsg"><b>Msg
+							Despedida:</b></label> ${segment.bot.farewellMsg}
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="downtime"><b>Tempo Limite:</b></label>
-						${bot.downtime}
+						<label class="control-label" for="botDowntime"><b>Tempo Limite:</b></label>
+						${segment.bot.downtime}
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="defaultAnswer"><b>Msg
-							Padrão:</b></label> ${bot.defaultAnswer}
+						<label class="control-label" for="botDefaultAnswer"><b>Msg
+							Padrão:</b></label> ${segment.bot.defaultAnswer}
 					</div>
 
 					<hr>
 					<div class="d-flex justify-content-end">
 						<a class="btn btn-default btn-lg"
-							href="${pageContext.request.contextPath}/bot">Voltar</a>
+							href="${pageContext.request.contextPath}/segment">Voltar</a>
 					</div>
 					<br>
 				</div>

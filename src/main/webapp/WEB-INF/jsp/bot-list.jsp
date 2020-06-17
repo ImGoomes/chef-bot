@@ -10,6 +10,15 @@
 		<title>Bot - Listagem</title>
 		
 		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		
+		<style>
+			.action:hover {
+				text-decoration: none;
+			}
+			.custom-container {
+				padding: 12px;
+			}
+		</style>
 	</head>
 	<body style="background-color: #AEAEAE">
 	
@@ -26,7 +35,7 @@
 	
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link"
+				<li class="nav-item"><a class="nav-link active"
 					href="${pageContext.request.contextPath}/bot">Bot </a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/segment">Segmento</a></li>
@@ -38,59 +47,60 @@
 		
 		<a href="${pageContext.request.contextPath}/bot/form?page=bot-new" class="btn btn-primary m-4">Criar bot</a>
 	
-		<c:if test="${not empty bots}">
-			<table class="table table-striped table-dark">
-				<thead>
-					<tr>
-						<th data-field="id">ID</th>
-						<th data-field="name">Nome</th>
-						<th data-field="welcomeMsg">Msg Boas Vindas</th>
-						<th data-field="farewellMsg">Msg Despedida</th>
-						<th data-field="downtime">Tempo Limite</th>
-						<th data-field="defaultAnswer">Msg Padrão</th>
-						<th class="actions" width="220">Ações</th>
-					</tr>
-				</thead>
-				<tbody>
-	
-					<c:forEach items="${bots}" var="bot">
+		<div class="custom-container">
+			<c:if test="${not empty bots}">
+				<table class="table table-striped table-dark">
+					<thead>
 						<tr>
-							<td>${bot.id}</td>
-							<td>${bot.name}</td>
-							<td>${bot.welcomeMsg}</td>
-							<td>${bot.farewellMsg}</td>
-							<td>${bot.downtime}</td>
-							<td>${bot.defaultAnswer}</td>
-	
-							<td class="actions"><form:form
-									action="${pageContext.request.contextPath}/bot/${bot.id}"
-									method="delete" id="form">
-	
-									<a
-										href="${pageContext.request.contextPath}/bot/${bot.id}">
-										<img src="/img/detail.png" style="width: 26px">
-									</a>
-									<a
-										href="${pageContext.request.contextPath}/bot/form?page=bot-edit&id=${bot.id}">
-										<img src="/img/edit2.png" style="width: 26px" />
-									</a>
-									<a href="#" onClick="document.getElementById('form').submit();">
-										<img src="/img/delete.png" style="width: 26px">
-									</a>
-								</form:form></td>
+							<th data-field="id">ID</th>
+							<th data-field="name">Nome</th>
+							<th data-field="welcomeMsg">Msg Boas Vindas</th>
+							<th data-field="farewellMsg">Msg Despedida</th>
+							<th data-field="downtime">Tempo Limite</th>
+							<th data-field="defaultAnswer">Msg Padrão</th>
+							<th class="actions" width="220">Ações</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</c:if>
-		<div class="container-fluid mt-4">
+					</thead>
+					<tbody>
+		
+						<c:forEach items="${bots}" var="bot">
+							<tr>
+								<td>${bot.id}</td>
+								<td>${bot.name}</td>
+								<td>${bot.welcomeMsg}</td>
+								<td>${bot.farewellMsg}</td>
+								<td>${bot.downtime}</td>
+								<td>${bot.defaultAnswer}</td>
+		
+								<td class="actions"><form:form
+										action="${pageContext.request.contextPath}/bot/${bot.id}"
+										method="delete" id="form">
+		
+										<a class="action"
+											href="${pageContext.request.contextPath}/bot/${bot.id}">
+											<img src="/img/detail.png" style="width: 26px">
+										</a>
+										<a class="action"
+											href="${pageContext.request.contextPath}/bot/form?page=bot-edit&id=${bot.id}">
+											<img src="/img/edit2.png" style="width: 26px" />
+										</a>
+										<a class="action" 
+											href="#" onClick="document.getElementById('form').submit();">
+											<img src="/img/delete.png" style="width: 26px">
+										</a>
+									</form:form></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
 			<c:if test="${empty bots}">
 				<div class="alert alert-warning" role="alert">
 					Nenhum bot encontrado!
 				</div>
 			</c:if>
 		</div>
-	
+		
 		<script src="/js/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 	</body>
