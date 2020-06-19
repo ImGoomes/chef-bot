@@ -41,12 +41,6 @@
 			action="${pageContext.request.contextPath}/user/${user.id}"
 			method="put">
 
-			<spring:hasBindErrors name="user">
-				<div class="alert alert-danger" role="alert">
-					<form:errors path="*" class="has-error" />
-				</div>
-			</spring:hasBindErrors>
-
 			<div class="form-group">
 				<label class="control-label" for="name">Nome:</label>
 				<form:input type="text" path="name" id="name" class="form-control"
@@ -63,7 +57,7 @@
 
 			<div class="form-group">
 				<label class="control-label" for="farewellMsg">Senha:</label>
-				<form:input type="text" path="password" id="password"
+				<form:input type="password" path="password" id="password"
 					class="form-control" maxlength="50" size="50" />
 				<font color="red"><form:errors path="password" /></font><br />
 			</div>

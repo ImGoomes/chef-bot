@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_user")
@@ -22,8 +24,14 @@ public class User {
 	@SequenceGenerator(name="sequence_tb_user", sequenceName="sequence_tb_user", allocationSize=1)
 	private Long id;
 	
+	@NotBlank(message = "Campo Obrigatório!")
 	private String name;
+	
+	@Email(message = "E-mail Inválido!")
+	@NotBlank
 	private String email;
+	
+	@NotBlank(message = "Campo Obrigatório!")
 	private String password;
 	
 	public Long getId() {

@@ -39,19 +39,6 @@
 		<div class="container-fluid mt-4">
 			<form:form modelAttribute="bot"
 				action="${pageContext.request.contextPath}/bot/${bot.id}" method="put">
-	
-				<spring:hasBindErrors name="bot">
-					<div class="alert alert-danger" role="alert">
-						<form:errors path="*" class="has-error" />
-					</div>
-				</spring:hasBindErrors>
-	
-				<div class="form-group">
-					<label class="control-label" for="name">Nome:</label>
-					<form:input type="text" path="name" id="name"
-						class="form-control" maxlength="50" size="50" />
-					<font color="red"><form:errors path="name" /></font><br />
-				</div>
 				
 				<div class="form-group">
 					<label class="control-label" for="welcomeMsg">Msg Boas Vindas:</label>
@@ -68,7 +55,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label" for="downtime">Tempo Limite:</label>
+					<label class="control-label" for="downtime">Tempo Inatividade:</label>
 					<form:input type="number" min="0" path="downtime" id="downtime"
 						class="form-control" maxlength="50" size="50" />
 					<font color="red"><form:errors path="downtime" /></font><br />

@@ -53,5 +53,3 @@ INSERT INTO tb_user(id_user, name, email, password) VALUES(sequence_tb_user.next
 select * from tb_bot;
 select * from tb_segment;
 select * from tb_user;
-
-COMMIT;

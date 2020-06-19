@@ -43,15 +43,15 @@
 				<div class="data">
 
 					<div class="form-group">
-						<label class="control-label" for="name">Nome:</label> <b>${user.name}</b>
+						<label class="control-label" for="name"><b>Nome:</b></label> ${user.name}
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="welcomeMsg">Email:</label> <b>${user.email}</b>
+						<label class="control-label" for="welcomeMsg"><b>Email:</b></label> ${user.email}
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="farewellMsg">Senha:</label> <b>${user.password}</b>
+						<label class="control-label" for="farewellMsg"><b>Senha:</b></label> ${user.password}
 					</div>
 					<hr>
 					<div class="d-flex justify-content-end">

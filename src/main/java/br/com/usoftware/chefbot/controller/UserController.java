@@ -1,8 +1,11 @@
 package br.com.usoftware.chefbot.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -52,7 +55,11 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public String save(User user, RedirectAttributes ra) {
+	public String save(@Valid User user, BindingResult br, RedirectAttributes ra) {
+		
+		if (br.hasErrors()) {
+			return "user-new";
+		}
 		
 		userRepository.save(user);
 		ra.addFlashAttribute("messages", "User salvo com sucesso!");

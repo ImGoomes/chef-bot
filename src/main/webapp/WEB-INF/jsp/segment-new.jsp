@@ -40,12 +40,6 @@
 			<form:form modelAttribute="segment"
 				action="${pageContext.request.contextPath}/segment" method="post">
 	
-				<spring:hasBindErrors name="segment">
-					<div class="alert alert-danger" role="alert">
-						<form:errors path="*" class="has-error" />
-					</div>
-				</spring:hasBindErrors>
-	
 				<div class="form-group">
 					<label class="control-label" for="name">Nome:</label>
 					<form:input type="text" path="name" id="name"

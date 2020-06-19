@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="tb_segment")
@@ -18,6 +19,8 @@ public class Segment {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sequence_tb_segment")
 	@SequenceGenerator(name="sequence_tb_segment", sequenceName="sequence_tb_segment", allocationSize=1)
 	private Long id;
+	
+	@NotBlank(message = "Campo obrigtório!")
 	private String name;
 	
 	@ManyToOne

@@ -12,6 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
+import org.aspectj.lang.annotation.RequiredTypes;
+import org.springframework.beans.factory.annotation.Required;
 
 @Entity
 @Table(name = "tb_bot")
@@ -22,10 +27,18 @@ public class Bot {
 	@SequenceGenerator(name="sequence_tb_bot", sequenceName="sequence_tb_bot", allocationSize=1)
 	private Long id;
 	
+	@NotBlank(message = "Campo obrigatório!")
 	private String name;
+	
+	@NotBlank(message = "Campo obrigatório!")
 	private String welcomeMsg;
+	
+	@NotBlank(message = "Campo obrigatório")
 	private String farewellMsg;
+	
 	private int downtime;
+	
+	@NotBlank(message = "Campo obrigatório")
 	private String defaultAnswer;
 	
 	@OneToMany(mappedBy = "bot", fetch = FetchType.LAZY,
